@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         editTextTextPersonNumber.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s?.length!! > 5){
@@ -26,7 +25,6 @@ class MainActivity : AppCompatActivity() {
                     code.text = "Phone Code"
                     phone_number.text = "Formatted Number"
                 }
-
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
