@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OTPTextView</string>
+    <string name="flag_image">flag image</string>
 </resources>

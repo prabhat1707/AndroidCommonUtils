@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ImageView
+        android:layout_marginStart="5dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_action_name"
+        android:visibility="visible"
+        android:contentDescription="@string/flag_image"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="+91"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginLeft="5dp" />
+
+</merge>
