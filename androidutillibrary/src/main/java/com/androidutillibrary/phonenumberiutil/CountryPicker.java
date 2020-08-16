@@ -23,7 +23,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.androidutillibrary.R;
-import com.androidutillibrary.phonenumberiutil.CountryList;
 
 import com.google.android.material.appbar.AppBarLayout;
 

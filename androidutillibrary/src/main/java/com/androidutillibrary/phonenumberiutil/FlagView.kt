@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.telephony.PhoneNumberUtils
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -70,21 +71,22 @@ class FlagView : LinearLayout {
             resources.getColor(android.R.color.black)
         )
         val showCodeViewEnabled =
-            a.getBoolean(R.styleable.FlagOptions_showCodeViewEnabled, false)
+            a.getBoolean(R.styleable.FlagOptions_showCodeViewEnabled, true)
+
         val showFlagViewEnabled = a.getBoolean(
             R.styleable.FlagOptions_showFlagImageViewEnabled,
-            false
+            true
         )
         a.recycle()
         val inflater = context
             .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.flag_view, this, true)
-        mPhoneCodeTv = getChildAt(1) as TextView
-        mFlagImage = getChildAt(0) as ImageView
+        mPhoneCodeTv = getChildAt(0) as TextView
+        mFlagImage = getChildAt(1) as ImageView
         mPhoneCodeTv!!.setTextColor(codeColor)
         mFlagImage?.setImageDrawable(resources.getDrawable(R.drawable.flag_in))
         mPhoneCodeTv!!.visibility = if (showCodeViewEnabled) View.VISIBLE else View.GONE
-        mPhoneCodeTv!!.visibility = if (showFlagViewEnabled) View.VISIBLE else View.GONE
+        mFlagImage!!.visibility = if (showFlagViewEnabled) View.VISIBLE else View.GONE
     }
 
     fun setFlag(id: Int) {
