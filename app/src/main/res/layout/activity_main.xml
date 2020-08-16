@@ -41,9 +41,9 @@
 
 
     <com.androidutillibrary.phonenumberiutil.FlagView
+        android:id="@+id/flag_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

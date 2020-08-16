@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         editTextTextPersonNumber.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s?.length!! > 5){
-                    PhoneUtil.getFormatNumber(s.toString())?.apply {
+                    flag_view.getFormatNumber(s.toString())?.apply {
                         code.text = phoneCode
                         phone_number.text = formattedNumber
                     }
