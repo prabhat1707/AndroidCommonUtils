@@ -70,7 +70,6 @@
                         android:textStyle="bold" />
 
 
-
                     <View
                         android:id="@+id/view"
                         style="@style/CustomTextViewGray"
@@ -154,8 +153,7 @@
                 android:padding="15dp"
                 android:src="@drawable/cross"
                 android:tint="@color/black"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -164,7 +162,7 @@
                 android:layout_alignBottom="@+id/image_clear_country_text"
                 android:layout_alignParentRight="true"
                 android:background="@color/white"
-                android:padding="10dp"/>
+                android:padding="10dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -220,6 +218,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="21dp"
             android:visibility="visible" />
+
         <TextView
             android:id="@+id/no_country_found"
             android:layout_width="wrap_content"
@@ -231,7 +230,6 @@
             android:text="No Countries Found"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

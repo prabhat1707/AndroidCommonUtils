@@ -10,7 +10,6 @@ import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -21,8 +20,8 @@ import com.androidutillibrary.R
 class FlagView : LinearLayout {
     private var mFlagImage: ImageView? = null
     private var mPhoneCodeTv: TextView? = null
-    internal var isContainPlus: Boolean = false;
-    private lateinit var mContext: Context;
+    internal var isContainPlus: Boolean = false
+    private lateinit var mContext: Context
     private var countryPickerListener: CountryPicker.OnCountryPickerListener? = null
 
     constructor(context: Context) : super(context) {
@@ -58,7 +57,7 @@ class FlagView : LinearLayout {
         context: Context,
         attrs: AttributeSet?
     ) {
-        mContext = context;
+        mContext = context
         orientation = HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         @SuppressLint("CustomViewStyleable") val a =
@@ -82,7 +81,7 @@ class FlagView : LinearLayout {
             .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.flag_view, this, true)
         var locale: String = ""
-        var mCountry: Country = Country("IN", "India", "+91", R.drawable.flag_in, "INR");
+        var mCountry: Country = Country("IN", "India", "+91", R.drawable.flag_in, "INR")
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 locale = context.resources.configuration.locales[0].country
@@ -102,7 +101,7 @@ class FlagView : LinearLayout {
         mPhoneCodeTv = getChildAt(1) as TextView
         mFlagImage = getChildAt(0) as ImageView
         mPhoneCodeTv?.setTextColor(codeColor)
-        mPhoneCodeTv?.text = "+"+mCountry.dial_code
+        mPhoneCodeTv?.text = "+" + mCountry.dial_code
         mFlagImage?.setImageDrawable(resources.getDrawable(mCountry.flag))
         mPhoneCodeTv?.visibility = if (showCodeViewEnabled) View.VISIBLE else View.GONE
         mFlagImage?.visibility = if (showFlagViewEnabled) View.VISIBLE else View.GONE
@@ -111,9 +110,9 @@ class FlagView : LinearLayout {
             countryPickerListener?.let {
                 CountryPicker(context, mCountry,
                     CountryPicker.OnCountryPickerListener { country ->
-                        val flag  = country.loadFlagByCode(
-                                context
-                                )
+                        val flag = country.loadFlagByCode(
+                            context
+                        )
                         mFlagImage?.setImageDrawable(
                             resources.getDrawable(
                                 flag
@@ -121,7 +120,13 @@ class FlagView : LinearLayout {
                         )
                         mPhoneCodeTv?.text = "+${country.phoneNumberCode}"
                         countryPickerListener?.onSelectCountry(country)
-                        mCountry = Country(country.coutryCode,country.countryName,country.phoneCode,flag,"")
+                        mCountry = Country(
+                            country.coutryCode,
+                            country.countryName,
+                            country.phoneCode,
+                            flag,
+                            ""
+                        )
                     })
             } ?: kotlin.run {
                 throw java.lang.Exception("OnCountryPickerListener is NUll")
@@ -138,16 +143,16 @@ class FlagView : LinearLayout {
     }
 
 
-    public fun getFormatNumber(number: String?): CCPCountry? {
+    fun getFormatNumber(number: String?): CCPCountry? {
         number?.let { phoneNumber ->
             val trimNumber = phoneNumber.trim()
             if (trimNumber.isNotEmpty()) {
                 PhoneUtil.isContainPlus = trimNumber.any { it.equals('+') }
                 val tempNUmber = "+$trimNumber"
                 for (codeData in CountryList.getLibraryMasterCountriesEnglish()) {
-                    if (tempNUmber.contains("+"+codeData.phoneCode)) {
+                    if (tempNUmber.contains("+" + codeData.phoneCode)) {
                         return codeData.apply {
-                            setCode("+"+codeData.phoneNumberCode)
+                            setCode("+" + codeData.phoneNumberCode)
                             setFlag(codeData.loadFlagByCode(mContext))
                             setFormattedNumber {
                                 return@setFormattedNumber trimNumber.removePrefix(codeData.phoneCode)

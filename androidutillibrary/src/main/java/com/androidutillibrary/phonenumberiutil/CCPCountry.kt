@@ -11,16 +11,16 @@ class CCPCountry(
     var defaultFlagRes: Int
 ) {
 
-    val phoneCode:String
+    val phoneCode: String
         get() {
-        return if (isContainPlus) "+$phoneNumberCode" else phoneNumberCode
-    }
+            return if (isContainPlus) "+$phoneNumberCode" else phoneNumberCode
+        }
 
 
     var formattedNumber: String? = null
 
-    inline fun setFormattedNumber(number: () -> String){
-         formattedNumber = number()
+    inline fun setFormattedNumber(number: () -> String) {
+        formattedNumber = number()
     }
 
     fun loadFlagByCode(context: Context): Int {
@@ -41,8 +41,6 @@ class CCPCountry(
         }
         return defaultFlagRes
     }
-
-
 
 
 }

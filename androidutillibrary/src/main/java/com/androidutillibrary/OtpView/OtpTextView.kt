@@ -28,10 +28,11 @@ class OtpTextView : FrameLayout {
         get() = InputFilter { source, start, end, _, _, _ ->
             for (i in start until end) {
                 if (!Pattern.compile(
-                                PATTERN
+                        PATTERN
                     )
-                                .matcher(source[i].toString())
-                                .matches()) {
+                        .matcher(source[i].toString())
+                        .matches()
+                ) {
                     return@InputFilter ""
                 }
             }
@@ -49,7 +50,11 @@ class OtpTextView : FrameLayout {
         init(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init(attrs)
     }
 
@@ -68,34 +73,48 @@ class OtpTextView : FrameLayout {
         itemViews = ArrayList()
         if (length > 0) {
             val otp = styles.getString(R.styleable.OtpTextView_otp)
-            val width = styles.getDimension(R.styleable.OtpTextView_width, Utils.getPixels(
-                context,
-                DEFAULT_WIDTH
-            ).toFloat()).toInt()
-            val height = styles.getDimension(R.styleable.OtpTextView_height, Utils.getPixels(
-                context,
-                DEFAULT_HEIGHT
-            ).toFloat()).toInt()
-            val space = styles.getDimension(R.styleable.OtpTextView_box_margin, Utils.getPixels(
-                context,
-                DEFAULT_SPACE
-            ).toFloat()).toInt()
-            val spaceLeft = styles.getDimension(R.styleable.OtpTextView_box_margin_left, Utils.getPixels(
-                context,
-                DEFAULT_SPACE_LEFT
-            ).toFloat()).toInt()
-            val spaceRight = styles.getDimension(R.styleable.OtpTextView_box_margin_right, Utils.getPixels(
-                context,
-                DEFAULT_SPACE_RIGHT
-            ).toFloat()).toInt()
-            val spaceTop = styles.getDimension(R.styleable.OtpTextView_box_margin_top, Utils.getPixels(
-                context,
-                DEFAULT_SPACE_TOP
-            ).toFloat()).toInt()
-            val spaceBottom = styles.getDimension(R.styleable.OtpTextView_box_margin_bottom, Utils.getPixels(
-                context,
-                DEFAULT_SPACE_BOTTOM
-            ).toFloat()).toInt()
+            val width = styles.getDimension(
+                R.styleable.OtpTextView_width, Utils.getPixels(
+                    context,
+                    DEFAULT_WIDTH
+                ).toFloat()
+            ).toInt()
+            val height = styles.getDimension(
+                R.styleable.OtpTextView_height, Utils.getPixels(
+                    context,
+                    DEFAULT_HEIGHT
+                ).toFloat()
+            ).toInt()
+            val space = styles.getDimension(
+                R.styleable.OtpTextView_box_margin, Utils.getPixels(
+                    context,
+                    DEFAULT_SPACE
+                ).toFloat()
+            ).toInt()
+            val spaceLeft = styles.getDimension(
+                R.styleable.OtpTextView_box_margin_left, Utils.getPixels(
+                    context,
+                    DEFAULT_SPACE_LEFT
+                ).toFloat()
+            ).toInt()
+            val spaceRight = styles.getDimension(
+                R.styleable.OtpTextView_box_margin_right, Utils.getPixels(
+                    context,
+                    DEFAULT_SPACE_RIGHT
+                ).toFloat()
+            ).toInt()
+            val spaceTop = styles.getDimension(
+                R.styleable.OtpTextView_box_margin_top, Utils.getPixels(
+                    context,
+                    DEFAULT_SPACE_TOP
+                ).toFloat()
+            ).toInt()
+            val spaceBottom = styles.getDimension(
+                R.styleable.OtpTextView_box_margin_bottom, Utils.getPixels(
+                    context,
+                    DEFAULT_SPACE_BOTTOM
+                ).toFloat()
+            ).toInt()
             val params = LinearLayout.LayoutParams(width, height)
             if (space > 0) {
                 params.setMargins(space, space, space, space)
@@ -103,7 +122,10 @@ class OtpTextView : FrameLayout {
                 params.setMargins(spaceLeft, spaceTop, spaceRight, spaceBottom)
             }
 
-            val editTextLayoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            val editTextLayoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
             editTextLayoutParams.gravity = Gravity.CENTER
             otpChildEditText = OTPChildEditText(context)
             otpChildEditText?.filters = arrayOf(filter, InputFilter.LengthFilter(length))
@@ -111,7 +133,10 @@ class OtpTextView : FrameLayout {
             addView(otpChildEditText, editTextLayoutParams)
 
 
-            val linearLayoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            val linearLayoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
             val linearLayout = LinearLayout(context)
 
             addView(linearLayout, linearLayoutParams)

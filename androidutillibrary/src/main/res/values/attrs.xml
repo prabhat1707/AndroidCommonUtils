@@ -33,11 +33,11 @@
         <attr name="text_typeface" format="string" />
     </declare-styleable>
 
-        <declare-styleable name="FlagOptions">
-            <attr name="phoneCodeColor" format="color" />
-            <attr name="showCodeViewEnabled" format="boolean" />
-            <attr name="showFlagImageViewEnabled" format="boolean" />
-        </declare-styleable>
+    <declare-styleable name="FlagOptions">
+        <attr name="phoneCodeColor" format="color" />
+        <attr name="showCodeViewEnabled" format="boolean" />
+        <attr name="showFlagImageViewEnabled" format="boolean" />
+    </declare-styleable>
 
     <declare-styleable name="CircleImageView">
         <attr name="civ_border_width" format="dimension" />

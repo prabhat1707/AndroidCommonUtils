@@ -23,7 +23,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.androidutillibrary.R;
-
 import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
@@ -31,7 +30,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
-
 
 import in.androidUtil.library.phonenumberiutil.CCPCountry;
 
@@ -57,7 +55,7 @@ public class CountryPicker {
     private TextView mTextViewNoCountryFound;
 
 
-    public CountryPicker(Context context, Country mCountry,OnCountryPickerListener mOnCountryPickerListener) {
+    public CountryPicker(Context context, Country mCountry, OnCountryPickerListener mOnCountryPickerListener) {
         this.mContext = context;
         this.mOnCountryPickerListener = mOnCountryPickerListener;
         mCountries = CountryList.getLibraryMasterCountriesEnglish();
@@ -316,7 +314,7 @@ public class CountryPicker {
             mTxtCountryDialCode.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.new_samll_icon, 0);
             mImgFlag.setImageResource(selectedCountry.loadFlagByCode(mContext));
 
-            }
+        }
 
         sortCountries(mCountries);
     }

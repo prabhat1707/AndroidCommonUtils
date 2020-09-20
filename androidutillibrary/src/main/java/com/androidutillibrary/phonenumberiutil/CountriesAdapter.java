@@ -27,7 +27,7 @@ public class CountriesAdapter extends
         RecyclerView.Adapter<CountriesAdapter.CountriesViewHolder> {
 
     private final int mRequstCode;
-    private  CountryPicker.OnCountryPickerListener  mListener;
+    private CountryPicker.OnCountryPickerListener mListener;
     private List<CCPCountry> mCountries;
     private Context mContext;
 
@@ -39,11 +39,11 @@ public class CountriesAdapter extends
      * @param mListener  item click listener instance
      */
     public CountriesAdapter(Context mContext, List<CCPCountry> mCountries,
-                            CountryPicker.OnCountryPickerListener mListener,int requestCode) {
+                            CountryPicker.OnCountryPickerListener mListener, int requestCode) {
         this.mContext = mContext;
         this.mCountries = mCountries;
         this.mListener = mListener;
-        this.mRequstCode=requestCode;
+        this.mRequstCode = requestCode;
     }
 
     @NonNull
@@ -64,7 +64,7 @@ public class CountriesAdapter extends
             @Override
             public void onClick(View v) {
                 mListener.onSelectCountry(country);
-                }
+            }
         });
 
 

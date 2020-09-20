@@ -1,7 +1,6 @@
 package com.androidutillibrary.OtpView
 
 import android.app.Activity
-import android.app.Application
 import android.content.Context
 import android.content.IntentFilter
 import android.util.Log
@@ -9,7 +8,7 @@ import com.google.android.gms.auth.api.phone.SmsRetriever
 import java.lang.ref.WeakReference
 
 object AutoReadSmsUtil {
-    fun setSmsListener(activity: WeakReference<Activity>){
+    fun setSmsListener(activity: WeakReference<Activity>) {
         val smsReceiver = MySmsRetriever()
         activity.get()?.let {
             SmsRetrieverApi(
@@ -21,7 +20,7 @@ object AutoReadSmsUtil {
 
                     override fun OnSmsSuccessListener(message: String) {
                         Log.d("OTPMESSSuccess", message + "chk")
-                        if (it.isDestroyed || it.isFinishing){
+                        if (it.isDestroyed || it.isFinishing) {
                             return
                         }
                         val intentFilter = IntentFilter()
@@ -33,7 +32,7 @@ object AutoReadSmsUtil {
 
     }
 
-    fun getSmsAppSignature(context:WeakReference<Context>):String{
+    fun getSmsAppSignature(context: WeakReference<Context>): String {
         return AppSignatureHelper(context.get()).appSignatures.get(0)
     }
 

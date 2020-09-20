@@ -50,7 +50,6 @@ public class Country {
     }
 
 
-
     public int loadFlagByCode(Context context) {
 
         try {
@@ -64,9 +63,7 @@ public class Country {
                             context.getPackageName());
         }
 
-        return  flag;
-
-
+        return flag;
 
 
     }
