@@ -79,3 +79,7 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+androidTest/
+test/
+androidutillibrary/src/main/java/com/androidutillibrary/CircularImageView.kt
