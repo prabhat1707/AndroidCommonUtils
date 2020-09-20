@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.androidutillibrary.R
+import com.androidutillibrary.Utils
 import java.util.*
 import java.util.regex.Pattern
 

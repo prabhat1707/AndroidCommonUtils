@@ -1,4 +1,3 @@
 include ':androidutillibrary'
-include ':mylibrary'
 include ':app'
 rootProject.name = "AndroidUtilSample"

@@ -124,7 +124,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="7dp"
                 android:layout_toLeftOf="@+id/image_clear_country_text"
-                android:background="@color/grey"
+                android:background="#f4f1f1"
                 android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
                 android:drawableStart="@drawable/ic_search"
                 android:drawableLeft="@drawable/ic_search"
@@ -136,7 +136,7 @@
                 android:maxLines="1"
                 android:padding="10dp"
                 android:text=""
-                android:textColor="@color/grey"
+                android:textColor="#FF0c1e37"
                 android:textSize="16sp" />
 
             <ImageView

@@ -12,6 +12,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import com.androidutillibrary.R
+import com.androidutillibrary.Utils
 
 class ItemView : FrameLayout {
 

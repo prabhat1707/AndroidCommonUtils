@@ -44,8 +44,6 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
  * list and user can select by clicking on name of country
  */
 public class CountryPicker {
-
-    private final int mRequestCode;
     private Context mContext;
     private OnCountryPickerListener mOnCountryPickerListener;
     private List<CCPCountry> mCountries;
@@ -59,10 +57,9 @@ public class CountryPicker {
     private TextView mTextViewNoCountryFound;
 
 
-    public CountryPicker(Context context, Country mCountry, int requestCode) {
+    public CountryPicker(Context context, Country mCountry,OnCountryPickerListener mOnCountryPickerListener) {
         this.mContext = context;
-        mRequestCode = requestCode;
-        mOnCountryPickerListener = (OnCountryPickerListener) mContext;
+        this.mOnCountryPickerListener = mOnCountryPickerListener;
         mCountries = CountryList.getLibraryMasterCountriesEnglish();
 
 
@@ -205,9 +202,9 @@ public class CountryPicker {
         adapter = new CountriesAdapter(sheetView.getContext(), mSearchResults,
                 new OnCountryPickerListener() {
                     @Override
-                    public void onSelectCountry(CCPCountry country, int RequestCode) {
+                    public void onSelectCountry(CCPCountry country) {
                         if (mOnCountryPickerListener != null) {
-                            mOnCountryPickerListener.onSelectCountry(country, mRequestCode);
+                            mOnCountryPickerListener.onSelectCountry(country);
                             if (mBottomSheetDialog != null) {
                                 mBottomSheetDialog.dismiss();
 
@@ -215,27 +212,12 @@ public class CountryPicker {
                             mBottomSheetDialog = null;
                         }
                     }
-                }, mRequestCode);
+                }, 1);
         mCountriesRecyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(sheetView.getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mCountriesRecyclerView.setLayoutManager(layoutManager);
         mCountriesRecyclerView.setAdapter(adapter);
-//        RecyclerSectionItemDecoration mSectionItemDecoration = new RecyclerSectionItemDecoration(mContext.getResources().getDimensionPixelSize(R.dimen.font22dp),
-//                true, // true for sticky, false for not
-//                new RecyclerSectionItemDecoration.SectionCallback() {
-//                    @Override
-//                    public boolean isSection(int position) {
-//                        return position == 0 || mSearchResults.get(position).getName()
-//                                .charAt(0) != mSearchResults.get(position - 1).getName().charAt(0);
-//                    }
-//
-//                    @Override
-//                    public CharSequence getSectionHeader(int position) {
-//                        return mSearchResults.get(position).getName().subSequence(0, 1);
-//                    }
-//                });
-//        mCountriesRecyclerView.addItemDecoration(mSectionItemDecoration);
         mCountriesRecyclerView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -348,7 +330,7 @@ public class CountryPicker {
 
 
     public interface OnCountryPickerListener {
-        void onSelectCountry(CCPCountry country, int RequestCode);
+        void onSelectCountry(CCPCountry country);
     }
 
 

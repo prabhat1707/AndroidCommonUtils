@@ -63,7 +63,7 @@ public class CountriesAdapter extends
         holder.mRootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onSelectCountry(country,mRequstCode);
+                mListener.onSelectCountry(country);
                 }
         });
 

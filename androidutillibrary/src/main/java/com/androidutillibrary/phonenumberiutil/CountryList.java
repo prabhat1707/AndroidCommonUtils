@@ -13,8 +13,10 @@ public class CountryList {
         List<CCPCountry> countries = new ArrayList<>();
         countries.add(new CCPCountry("in", "91", "India", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ad", "376", "Andorra", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("cn", "86", "China", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ae", "971", "United Arab Emirates (UAE)", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("af", "93", "Afghanistan", DEFAULT_FLAG_RES));
+        countries.add(new CCPCountry("us", "1", "United States", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ag", "1", "Antigua and Barbuda", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ai", "1", "Anguilla", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("al", "355", "Albania", DEFAULT_FLAG_RES));
@@ -57,7 +59,6 @@ public class CountryList {
         countries.add(new CCPCountry("ck", "682", "Cook Islands", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("cl", "56", "Chile", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("cm", "237", "Cameroon", DEFAULT_FLAG_RES));
-        countries.add(new CCPCountry("cn", "86", "China", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("co", "57", "Colombia", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("cr", "506", "Costa Rica", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("cu", "53", "Cuba", DEFAULT_FLAG_RES));
@@ -234,7 +235,6 @@ public class CountryList {
         countries.add(new CCPCountry("tz", "255", "Tanzania, United Republic Of", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ua", "380", "Ukraine", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("ug", "256", "Uganda", DEFAULT_FLAG_RES));
-        countries.add(new CCPCountry("us", "1", "United States", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("uy", "598", "Uruguay", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("uz", "998", "Uzbekistan", DEFAULT_FLAG_RES));
         countries.add(new CCPCountry("va", "379", "Holy See (vatican City State)", DEFAULT_FLAG_RES));

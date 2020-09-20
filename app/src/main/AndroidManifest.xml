@@ -9,17 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PhoneUtilSample"
+            android:label="Phone Util Sample"
+            />
         <activity
-            android:name=".MainActivity"
+            android:name=".OtpFetchActivity"
             android:label="@string/title_activity_otp_fetch"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".OtpFetchActivity">
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name="com.androidutillibrary.OtpView.MySmsRetriever"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
