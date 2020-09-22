@@ -12,8 +12,8 @@ Android Util Library Contain a Small Collection of libraries that we commonly us
     - Auto Read Sms by using SMS Retriever API.
     
 # Sample Images:
-![IMages1](https://firebasestorage.googleapis.com/v0/b/chatapp-2e1df.appspot.com/o/android%20util%20images%2Fotp_demo.gif?alt=media&token=34aaf818-dbae-4994-94af-e16a274116b8)
-![alt Setting IMages2](https://firebasestorage.googleapis.com/v0/b/chatapp-2e1df.appspot.com/o/android%20util%20images%2Fphone_Demo.gif?alt=media&token=67cf6c62-7846-461b-8d1a-f7280b9c2723)
+![IMages1](https://firebasestorage.googleapis.com/v0/b/chatapp-2e1df.appspot.com/o/android%20util%20images%2Fotp_rezied.gif?alt=media&token=24433b69-70cc-40c4-abae-1a84188e241f)
+![alt Setting IMages2](https://firebasestorage.googleapis.com/v0/b/chatapp-2e1df.appspot.com/o/android%20util%20images%2Fphone_rezied.gif?alt=media&token=4c6800cd-c4e8-49ee-9a82-0551d57fc018)
 
 # Prerequisites
 - Android 17
