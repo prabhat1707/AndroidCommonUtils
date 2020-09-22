@@ -134,9 +134,21 @@ Add Broadcast in manifest
 
 ````
 
-Add Broadcast inactivity to receive data and message
+Add Broadcast in Activity to receive data and message
 
 ````
+
+override fun onResume() {
+        LocalBroadcastManager.getInstance(this).registerReceiver(smsBroadcastReceiver, IntentFilter(MySmsRetriever.SMSLOCALBROADCASTE))
+        super.onResume()
+    }
+
+override fun onPause() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(smsBroadcastReceiver)
+        super.onPause()
+}
+    
+    
  private val smsBroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             if (intent?.action.equals(MySmsRetriever.SMSLOCALBROADCASTE)){
@@ -148,7 +160,7 @@ Add Broadcast inactivity to receive data and message
     }
    
 ````
-#### Otp code retriver Helper
+#### Otp code retriever Helper
 
 use below one if your mess contains integer code with x digit else you can make your logic to extract it.
 
@@ -180,7 +192,7 @@ To get Sms Signature use the below code
 
 ## How to Use FlagView Util
 
-Add the following to your XML design to show the otpview
+Add the following to your XML design to show the FlagView
 
 ````
 <com.androidutillibrary.phonenumberiutil.FlagView
@@ -196,7 +208,7 @@ Add the following to your XML design to show the otpview
         app:layout_constraintTop_toTopOf="@+id/editTextTextPersonNumber">
       
 ````
-#### FlafView Attributes
+#### FlagView Attributes
 
 | Attribute | Description |
 | --- | --- |
