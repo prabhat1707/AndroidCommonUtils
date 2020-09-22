@@ -15,7 +15,7 @@ import com.androidutillibrary.R;
 
 import java.util.List;
 
-import in.androidUtil.library.phonenumberiutil.CCPCountry;
+import in.androidUtil.library.phonenumberiutil.ParsedNumberData;
 
 
 /**
@@ -28,7 +28,7 @@ public class CountriesAdapter extends
 
     private final int mRequstCode;
     private CountryPicker.OnCountryPickerListener mListener;
-    private List<CCPCountry> mCountries;
+    private List<ParsedNumberData> mCountries;
     private Context mContext;
 
     /**
@@ -38,7 +38,7 @@ public class CountriesAdapter extends
      * @param mCountries list of countries
      * @param mListener  item click listener instance
      */
-    public CountriesAdapter(Context mContext, List<CCPCountry> mCountries,
+    public CountriesAdapter(Context mContext, List<ParsedNumberData> mCountries,
                             CountryPicker.OnCountryPickerListener mListener, int requestCode) {
         this.mContext = mContext;
         this.mCountries = mCountries;
@@ -55,7 +55,7 @@ public class CountriesAdapter extends
 
     @Override
     public void onBindViewHolder(@NonNull CountriesViewHolder holder, int position) {
-        final CCPCountry country = mCountries.get(position);
+        final ParsedNumberData country = mCountries.get(position);
         holder.mCountryNameText.setText(country.getCountryName());
         holder.mTxtCntryDialCode.setText(country.getCoutryCode());
         holder.mTxtCntryDialCode.setText(mContext.getString(R.string.dial_code, country.getCoutryCode()));

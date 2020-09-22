@@ -31,7 +31,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
-import in.androidUtil.library.phonenumberiutil.CCPCountry;
+import in.androidUtil.library.phonenumberiutil.ParsedNumberData;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
@@ -44,11 +44,11 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 public class CountryPicker {
     private Context mContext;
     private OnCountryPickerListener mOnCountryPickerListener;
-    private List<CCPCountry> mCountries;
+    private List<ParsedNumberData> mCountries;
     private EditText mSearchEditText;
     private RecyclerView mCountriesRecyclerView;
     private CountriesAdapter adapter;
-    private List<CCPCountry> mSearchResults;
+    private List<ParsedNumberData> mSearchResults;
     private Dialog mBottomSheetDialog;
     private ImageView mImageClearText;
     private boolean isCountryPickerShowing;
@@ -86,10 +86,10 @@ public class CountryPicker {
      *
      * @param mCountries list of countries
      */
-    private void sortCountries(@NonNull List<CCPCountry> mCountries) {
-        Collections.sort(mCountries, new Comparator<CCPCountry>() {
+    private void sortCountries(@NonNull List<ParsedNumberData> mCountries) {
+        Collections.sort(mCountries, new Comparator<ParsedNumberData>() {
             @Override
-            public int compare(CCPCountry country1, CCPCountry country2) {
+            public int compare(ParsedNumberData country1, ParsedNumberData country2) {
                 return country1.getCountryName().trim().compareToIgnoreCase(country2.getCountryName().trim());
             }
         });
@@ -200,7 +200,7 @@ public class CountryPicker {
         adapter = new CountriesAdapter(sheetView.getContext(), mSearchResults,
                 new OnCountryPickerListener() {
                     @Override
-                    public void onSelectCountry(CCPCountry country) {
+                    public void onSelectCountry(ParsedNumberData country) {
                         if (mOnCountryPickerListener != null) {
                             mOnCountryPickerListener.onSelectCountry(country);
                             if (mBottomSheetDialog != null) {
@@ -275,7 +275,7 @@ public class CountryPicker {
      */
     private void search(String searchQuery) {
         mSearchResults.clear();
-        for (CCPCountry country : mCountries) {
+        for (ParsedNumberData country : mCountries) {
             if (country.getCountryName().toLowerCase(Locale.ENGLISH).startsWith(searchQuery.toLowerCase())) {
                 mSearchResults.add(country);
             }
@@ -328,7 +328,7 @@ public class CountryPicker {
 
 
     public interface OnCountryPickerListener {
-        void onSelectCountry(CCPCountry country);
+        void onSelectCountry(ParsedNumberData country);
     }
 
 

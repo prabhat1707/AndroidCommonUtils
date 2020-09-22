@@ -25,7 +25,7 @@
         </activity>
 
         <receiver
-            android:name="com.androidutillibrary.OtpView.MySmsRetriever"
+            android:name="com.androidutillibrary.otputil.MySmsRetriever"
             android:exported="true"
             android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
             <intent-filter>

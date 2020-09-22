@@ -5,7 +5,7 @@ import com.androidutillibrary.phonenumberiutil.CountryList
 object PhoneUtil {
     internal var isContainPlus: Boolean = false
 
-    fun getFormatNumber(number: String?): CCPCountry? {
+    fun getFormatNumber(number: String?): ParsedNumberData? {
         number?.let { phoneNumber ->
             val trimNumber = phoneNumber.trim()
             if (trimNumber.isNotEmpty()) {

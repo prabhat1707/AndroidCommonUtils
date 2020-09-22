@@ -1,4 +1,4 @@
-package com.androidutillibrary.OtpView
+package com.androidutillibrary.otputil
 
 import android.app.Activity
 import android.content.Context

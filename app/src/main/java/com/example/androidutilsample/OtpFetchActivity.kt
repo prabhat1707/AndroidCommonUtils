@@ -1,6 +1,5 @@
 package com.example.androidutilsample
 
-import android.app.Application
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -11,18 +10,14 @@ import android.util.Log
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.androidutillibrary.OtpView.*
-import com.androidutillibrary.Utils
+import com.androidutillibrary.otputil.*
 import com.androidutillibrary.getOtpCode
-import java.lang.Exception
 import java.lang.ref.WeakReference
 
 class OtpFetchActivity : AppCompatActivity() {
-    private var otpView: OtpTextView? = null
+    private var otpView: OtpView? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +36,7 @@ class OtpFetchActivity : AppCompatActivity() {
         otpView = findViewById(R.id.otp_view)
         otpView?.requestFocusOTP()
         otpView?.otpListener = object : OTPListener {
-            override fun onInteractionListener() {
+            override fun onUserInteraction() {
 
             }
 

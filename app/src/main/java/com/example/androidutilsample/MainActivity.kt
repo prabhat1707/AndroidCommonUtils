@@ -1,13 +1,8 @@
 package com.example.androidutilsample
 
-import `in`.androidUtil.library.phonenumberiutil.CCPCountry
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.androidutillibrary.phonenumberiutil.CountryPicker
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

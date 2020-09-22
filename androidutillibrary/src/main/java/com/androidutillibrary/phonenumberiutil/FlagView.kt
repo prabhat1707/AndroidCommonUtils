@@ -1,6 +1,6 @@
 package com.androidutillibrary.phonenumberiutil
 
-import `in`.androidUtil.library.phonenumberiutil.CCPCountry
+import `in`.androidUtil.library.phonenumberiutil.ParsedNumberData
 import `in`.androidUtil.library.phonenumberiutil.PhoneUtil
 import android.annotation.SuppressLint
 import android.content.Context
@@ -20,9 +20,9 @@ import com.androidutillibrary.R
 class FlagView : LinearLayout {
     private var mFlagImage: ImageView? = null
     private var mPhoneCodeTv: TextView? = null
-    internal var isContainPlus: Boolean = false
     private lateinit var mContext: Context
     private var countryPickerListener: CountryPicker.OnCountryPickerListener? = null
+    private var isCountryPickerEnable = false
 
     constructor(context: Context) : super(context) {
         init(context, null)
@@ -69,11 +69,15 @@ class FlagView : LinearLayout {
             R.styleable.FlagOptions_phoneCodeColor,
             resources.getColor(android.R.color.black)
         )
+        isCountryPickerEnable = a.getBoolean(
+            R.styleable.FlagOptions_enableCountryPicker,
+            false
+        )
         val showCodeViewEnabled =
-            a.getBoolean(R.styleable.FlagOptions_showCodeViewEnabled, true)
+            a.getBoolean(R.styleable.FlagOptions_enablePhoneCode, true)
 
         val showFlagViewEnabled = a.getBoolean(
-            R.styleable.FlagOptions_showFlagImageViewEnabled,
+            R.styleable.FlagOptions_enableCountryFlag,
             true
         )
         a.recycle()
@@ -107,30 +111,31 @@ class FlagView : LinearLayout {
         mFlagImage?.visibility = if (showFlagViewEnabled) View.VISIBLE else View.GONE
 
         this.setOnClickListener {
-            countryPickerListener?.let {
-                CountryPicker(context, mCountry,
-                    CountryPicker.OnCountryPickerListener { country ->
-                        val flag = country.loadFlagByCode(
-                            context
-                        )
-                        mFlagImage?.setImageDrawable(
-                            resources.getDrawable(
-                                flag
+            if (isCountryPickerEnable)
+                countryPickerListener?.let {
+                    CountryPicker(context, mCountry,
+                        CountryPicker.OnCountryPickerListener { country ->
+                            val flag = country.loadFlagByCode(
+                                context
                             )
-                        )
-                        mPhoneCodeTv?.text = "+${country.phoneNumberCode}"
-                        countryPickerListener?.onSelectCountry(country)
-                        mCountry = Country(
-                            country.coutryCode,
-                            country.countryName,
-                            country.phoneCode,
-                            flag,
-                            ""
-                        )
-                    })
-            } ?: kotlin.run {
-                throw java.lang.Exception("OnCountryPickerListener is NUll")
-            }
+                            mFlagImage?.setImageDrawable(
+                                resources.getDrawable(
+                                    flag
+                                )
+                            )
+                            mPhoneCodeTv?.text = "+${country.phoneNumberCode}"
+                            countryPickerListener?.onSelectCountry(country)
+                            mCountry = Country(
+                                country.coutryCode,
+                                country.countryName,
+                                country.phoneCode,
+                                flag,
+                                ""
+                            )
+                        })
+                } ?: kotlin.run {
+                    throw java.lang.Exception("OnCountryPickerListener is NUll")
+                }
         }
     }
 
@@ -143,7 +148,7 @@ class FlagView : LinearLayout {
     }
 
 
-    fun getFormatNumber(number: String?): CCPCountry? {
+    fun getFormatNumber(number: String?): ParsedNumberData? {
         number?.let { phoneNumber ->
             val trimNumber = phoneNumber.trim()
             if (trimNumber.isNotEmpty()) {
@@ -171,6 +176,10 @@ class FlagView : LinearLayout {
 
     fun setCountryPickerListener(lis: CountryPicker.OnCountryPickerListener) {
         this.countryPickerListener = lis
+    }
+
+    fun enableCountryCodePicker(enable:Boolean){
+        isCountryPickerEnable = enable
     }
 
 

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#BC9F9F"
     tools:context=".MainActivity">
 
     <TextView
@@ -44,6 +45,10 @@
     <com.androidutillibrary.phonenumberiutil.FlagView
         android:id="@+id/flag_view"
         android:layout_width="wrap_content"
+        android:background="#fff"
+        app:enableCountryPicker = "true"
+        app:enablePhoneCode = "true"
+        app:enableCountryFlag = "true"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonNumber"
         app:layout_constraintStart_toStartOf="parent"

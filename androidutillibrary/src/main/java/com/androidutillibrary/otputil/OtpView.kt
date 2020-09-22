@@ -1,4 +1,4 @@
-package com.androidutillibrary.OtpView
+package com.androidutillibrary.otputil
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -16,7 +16,7 @@ import com.androidutillibrary.Utils
 import java.util.*
 import java.util.regex.Pattern
 
-class OtpTextView : FrameLayout {
+class OtpView : FrameLayout {
 
     private var itemViews: MutableList<ItemView>? = null
     private var otpChildEditText: OTPChildEditText? = null
@@ -59,58 +59,58 @@ class OtpTextView : FrameLayout {
     }
 
     private fun init(attrs: AttributeSet?) {
-        val styles = context.obtainStyledAttributes(attrs, R.styleable.OtpTextView)
+        val styles = context.obtainStyledAttributes(attrs, R.styleable.OtpView)
         styleEditTexts(styles, attrs)
         styles.recycle()
     }
 
     private fun styleEditTexts(styles: TypedArray, attrs: AttributeSet?) {
-        length = styles.getInt(R.styleable.OtpTextView_length, DEFAULT_LENGTH)
+        length = styles.getInt(R.styleable.OtpView_length, DEFAULT_LENGTH)
         generateViews(styles, attrs)
     }
 
     private fun generateViews(styles: TypedArray, attrs: AttributeSet?) {
         itemViews = ArrayList()
         if (length > 0) {
-            val otp = styles.getString(R.styleable.OtpTextView_otp)
+            val otp = styles.getString(R.styleable.OtpView_otp)
             val width = styles.getDimension(
-                R.styleable.OtpTextView_width, Utils.getPixels(
+                R.styleable.OtpView_width, Utils.getPixels(
                     context,
                     DEFAULT_WIDTH
                 ).toFloat()
             ).toInt()
             val height = styles.getDimension(
-                R.styleable.OtpTextView_height, Utils.getPixels(
+                R.styleable.OtpView_height, Utils.getPixels(
                     context,
                     DEFAULT_HEIGHT
                 ).toFloat()
             ).toInt()
             val space = styles.getDimension(
-                R.styleable.OtpTextView_box_margin, Utils.getPixels(
+                R.styleable.OtpView_box_margin, Utils.getPixels(
                     context,
                     DEFAULT_SPACE
                 ).toFloat()
             ).toInt()
             val spaceLeft = styles.getDimension(
-                R.styleable.OtpTextView_box_margin_left, Utils.getPixels(
+                R.styleable.OtpView_box_margin_left, Utils.getPixels(
                     context,
                     DEFAULT_SPACE_LEFT
                 ).toFloat()
             ).toInt()
             val spaceRight = styles.getDimension(
-                R.styleable.OtpTextView_box_margin_right, Utils.getPixels(
+                R.styleable.OtpView_box_margin_right, Utils.getPixels(
                     context,
                     DEFAULT_SPACE_RIGHT
                 ).toFloat()
             ).toInt()
             val spaceTop = styles.getDimension(
-                R.styleable.OtpTextView_box_margin_top, Utils.getPixels(
+                R.styleable.OtpView_box_margin_top, Utils.getPixels(
                     context,
                     DEFAULT_SPACE_TOP
                 ).toFloat()
             ).toInt()
             val spaceBottom = styles.getDimension(
-                R.styleable.OtpTextView_box_margin_bottom, Utils.getPixels(
+                R.styleable.OtpView_box_margin_bottom, Utils.getPixels(
                     context,
                     DEFAULT_SPACE_BOTTOM
                 ).toFloat()
@@ -166,7 +166,7 @@ class OtpTextView : FrameLayout {
              * @param after
              */
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
+                    // no use
             }
 
             /**
@@ -177,7 +177,7 @@ class OtpTextView : FrameLayout {
              */
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 otpListener?.let { otpListener ->
-                    otpListener.onInteractionListener()
+                    otpListener.onUserInteraction()
                     if (s.length == length) {
                         otpListener.onOTPComplete(s.toString())
                     }
@@ -187,7 +187,7 @@ class OtpTextView : FrameLayout {
             }
 
             override fun afterTextChanged(s: Editable) {
-
+                // no use
             }
         })
     }

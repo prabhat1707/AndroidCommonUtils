@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="OtpTextView">
+    <declare-styleable name="OtpView">
         <attr name="android:textColor" />
         <attr name="otp" format="string" />
         <attr name="hide_otp" format="boolean" />
@@ -35,8 +35,9 @@
 
     <declare-styleable name="FlagOptions">
         <attr name="phoneCodeColor" format="color" />
-        <attr name="showCodeViewEnabled" format="boolean" />
-        <attr name="showFlagImageViewEnabled" format="boolean" />
+        <attr name="enablePhoneCode" format="boolean" />
+        <attr name="enableCountryPicker" format="boolean" />
+        <attr name="enableCountryFlag" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="CircleImageView">

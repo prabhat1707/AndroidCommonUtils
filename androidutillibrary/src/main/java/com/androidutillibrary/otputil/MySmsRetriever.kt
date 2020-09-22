@@ -1,4 +1,4 @@
-package com.androidutillibrary.OtpView
+package com.androidutillibrary.otputil
 
 import android.content.BroadcastReceiver
 import android.content.Context

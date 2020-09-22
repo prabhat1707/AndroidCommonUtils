@@ -4,11 +4,11 @@ import `in`.androidUtil.library.phonenumberiutil.PhoneUtil.isContainPlus
 import android.content.Context
 import java.util.*
 
-class CCPCountry(
+class ParsedNumberData(
     var coutryCode: String,
     var phoneNumberCode: String,
     var countryName: String,
-    var defaultFlagRes: Int
+    private var defaultFlagRes: Int
 ) {
 
     val phoneCode: String

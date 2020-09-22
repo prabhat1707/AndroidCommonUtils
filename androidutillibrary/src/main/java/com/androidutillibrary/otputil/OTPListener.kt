@@ -1,10 +1,10 @@
-package com.androidutillibrary.OtpView
+package com.androidutillibrary.otputil
 
 interface OTPListener {
     /**
      * Callback Fired when user starts typing in the OTP/PIN box.
      */
-    fun onInteractionListener()
+    fun onUserInteraction()
 
     /**
      * @param otp Filled OTP

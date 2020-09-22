@@ -37,7 +37,7 @@ class PhoneUtilSample : AppCompatActivity() {
 
     private fun fetchData() {
         flag_view.getFormatNumber(no_of_test.text.trim().toString())?.apply {
-            code.text = "Phone Code is " + phoneCode
+            code.text = "Phone Code is " + phoneNumberCode
             phone_number.text = "Phone Number is " + formattedNumber
             editTextTextPersonNumber.setText(formattedNumber)
         }
