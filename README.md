@@ -1,5 +1,7 @@
 # AndroidCommonUtils
-Android Util Library Contain a Small Collection of libraries that we commonly use in our android projects. In the current version, it contains OtpView with SmsRetriver Api and Phone number util with phone number Picker and also Parse a phone number with phone code. 
+Android Util Library Contain a Small size Collection of libraries that we commonly use in our android projects. In the current version, it contains OtpView with SmsRetriver Api and Phone number util with phone number Picker and also Parse a phone number with phone code. 
+
+[![Awesome Kotlin Badge](https://img.shields.io/badge/Made%20with-Kotlin-1f425f.svg)](https://kotlinlang.org)
 
 ## What's New in Ver 1.0
 
